@@ -5,15 +5,15 @@ import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
-@Entity(tableName = "createAcct_table")
-public class CreateAcct {
+@Entity(tableName = "user_table")
+public class User {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
     private String userName;
     private String password;
 
-    public CreateAcct(String userName, String password){
+    public User(String userName, String password){
         this.userName = userName;
         this.password = password;
     }
@@ -46,7 +46,7 @@ public class CreateAcct {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CreateAcct user = (CreateAcct) o;
+        User user = (User) o;
         return userName.equals(user.userName) && password.equals(user.password);
     }
 
