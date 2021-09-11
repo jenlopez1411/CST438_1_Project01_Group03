@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CST438_1_Project01_Group03</string>
+    <string name="login">login</string>
+    <string name="createacct">createacc</string>
+    <string name="welcome">welcome</string>
+    <string name="welcome1">Welcome [name]!</string>
+    <string name="create">Create Account</string>
+    <string name="createPageInfo">Please fill in!</string>
+    <string name="username">Username</string>
+    <string name="empty" />
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
 </resources>

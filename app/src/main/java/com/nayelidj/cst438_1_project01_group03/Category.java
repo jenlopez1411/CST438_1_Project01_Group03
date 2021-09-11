@@ -5,6 +5,7 @@ public class Category {
 
     private String tag;
 
+
     public String getLabel() {
         return label;
     }

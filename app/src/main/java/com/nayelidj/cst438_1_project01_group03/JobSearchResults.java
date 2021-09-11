@@ -1,5 +1,6 @@
 package com.nayelidj.cst438_1_project01_group03;
 
+
 import java.util.List;
 
 public class JobSearchResults {
@@ -7,6 +8,7 @@ public class JobSearchResults {
     private int count;
 
     private double mean;
+
 
     private List<Results> results;
 
@@ -21,4 +23,5 @@ public class JobSearchResults {
     public List<Results> getResults() {
         return results;
     }
+
 }

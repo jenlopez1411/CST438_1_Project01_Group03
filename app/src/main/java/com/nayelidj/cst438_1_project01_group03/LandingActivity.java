@@ -8,12 +8,14 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -27,18 +29,22 @@ public class LandingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
+
         textViewResult = findViewById(R.id.text_view_result);
+
 
         // will prevent Patch from ignoring null
         Gson gson = new GsonBuilder().serializeNulls().create();
 
         //if you add v3 to baseurl has a backslash: /v3/
         Retrofit retrofit = new Retrofit.Builder()
+
                 .baseUrl("https://api.adzuna.com/v1/api/jobs/us/search/1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
 
         //getJobSearchResults();
         textViewResult.setText("Test");
@@ -182,4 +188,5 @@ public class LandingActivity extends AppCompatActivity {
 //            }
 //        });
     //  }
+    }
 }
