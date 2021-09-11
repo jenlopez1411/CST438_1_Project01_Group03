@@ -4,4 +4,9 @@ public class Company {
 
     private String display_name;
 
+
+    public String getDisplay_name() {
+        return display_name;
+    }
+
 }
