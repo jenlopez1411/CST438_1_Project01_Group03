@@ -15,38 +15,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.searchPagebtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeActivity();
+                goToSearchPage();
+            }
+        });
+
+        mcreateAcctBtn = findViewById(R.id.createAcctbtn);
+        mcreateAcctBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCreateAccount();
+            }
+        });
+
+        mLoginBtn = findViewById(R.id.loginbtn);
+        mLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToLoginPage();
             }
         });
     }
 
-    public void changeActivity() {
-        Intent intent = new Intent(this, LandingActivity.class);
-
+    public void goToSearchPage() {
+        Intent intent = new Intent(this, SearchPage.class);
         startActivity(intent);
+    }
 
-        mcreateAcctBtn = findViewById(R.id.createAcctbtn);
-        mLoginBtn = findViewById(R.id.loginbtn);
+    public void goToCreateAccount() {
+        Intent intent = new Intent(MainActivity.this, CreateAccount.class);
+        startActivity(intent);
+    }
 
-        mcreateAcctBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CreateAccount.class);
-                startActivity(intent);
-            }
-        });
-
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LogIn.class);
-                startActivity(intent);
-            }
-        });
-
+    public void goToLoginPage() {
+        Intent intent = new Intent(MainActivity.this, LogIn.class);
+        startActivity(intent);
     }
 }
