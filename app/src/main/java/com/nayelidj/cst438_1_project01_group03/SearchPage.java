@@ -3,6 +3,7 @@ package com.nayelidj.cst438_1_project01_group03;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class SearchPage extends AppCompatActivity {
     private Button searchButton;
 
     private TextView textViewResult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +127,7 @@ public class SearchPage extends AppCompatActivity {
             }
         });
     }
+
 
 
 
