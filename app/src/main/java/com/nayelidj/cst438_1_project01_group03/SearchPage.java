@@ -18,6 +18,10 @@ public class SearchPage extends AppCompatActivity {
         EditText userInput = findViewById(R.id.searchBar);
         String userInputV = String.valueOf(userInput.getText());
 
-
+    }
+    public void pageBtn(View view){
+        Context context = getApplicationContext();
+        EditText pageNumber = findViewById(R.id.pageNum);
+        String pageNumberInput = String.valueOf(pageNumber.getText());
     }
 }
