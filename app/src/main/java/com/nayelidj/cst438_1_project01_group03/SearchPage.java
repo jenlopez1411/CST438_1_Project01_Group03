@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -32,7 +31,6 @@ public class SearchPage extends AppCompatActivity {
     private Button searchButton;
 
     private TextView textViewResult;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,7 +189,6 @@ public class SearchPage extends AppCompatActivity {
         url = url.split("\n")[0].trim();
 
     }
-
 
 
 }
