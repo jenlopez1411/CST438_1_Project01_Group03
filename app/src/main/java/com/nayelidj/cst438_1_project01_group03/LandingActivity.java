@@ -38,8 +38,7 @@ public class LandingActivity extends AppCompatActivity {
 
         //if you add v3 to baseurl has a backslash: /v3/
         Retrofit retrofit = new Retrofit.Builder()
-
-                .baseUrl("https://api.adzuna.com/v1/api/jobs/us/search/1/")
+                .baseUrl("https://api.adzuna.com/v1/api/jobs/us/search/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -47,47 +46,90 @@ public class LandingActivity extends AppCompatActivity {
 
 
         //getJobSearchResults();
-        textViewResult.setText("Test");
-        getJobSearchResult();
+        //getJobSearchResult();
+        getJobSearchResult("Software Developer");
     }
 
-//    private void getJobSearchResults() {
+//    private void getJobSearchResult() {
 //
+//        Call<JobSearchResults> call = jsonPlaceHolderApi.getJobSearchResult();
 //
-//        Call<List<JobSearchResults>> call = jsonPlaceHolderApi.getJobSearchResults();
-//
-//        call.enqueue(new Callback<List<JobSearchResults>>() {
+//        call.enqueue(new Callback<JobSearchResults>() {
 //            @Override
-//            public void onResponse(Call<List<JobSearchResults>> call, Response<List<JobSearchResults>> response) {
+//            public void onResponse(Call<JobSearchResults> call, Response<JobSearchResults> response) {
 //
 //                if (!response.isSuccessful()) {
 //                    textViewResult.setText("Code: " + response.code());
 //                    return;
 //                }
 //
-//                List<JobSearchResults> results = response.body();
+//                JobSearchResults results = response.body();
 //
-//                for (JobSearchResults result : results) {
-//                    String content = "";
-//                    content += "count: " + result.getCount() + "\n";
-//                    content += "mean: " + result.getMean() + "\n";
-//                    //content += "Result: " + result.getResults() + "\n";
+//                String content = "";
 //
+//                content += "Count: " + String.valueOf(results.getCount()) + "\n";
+//                content += "Mean: " + String.valueOf(results.getMean()) + "\n";
+//
+//                content += "Results: \n";
+//                for (Results result : results.getResults())
+//                {
+//                    //result values
+//                    Category category = result.getCategory();
+//                    Company company = result.getCompany();
+//                    Location location = result.getLocation();
+//                    String created = result.getCreated();
+//                    String description = result.getDescription();
+//                    String id = result.getId();
+//                    float latitude = result.getLatitude();
+//                    float longitude = result.getLongitude();
+//                    String redirect_url = result.getRedirect_url();
+//                    String salary_is_predicted = result.getSalary_is_predicted();
+//                    String title = result.getTitle();
+//
+//                    //category values
+//                    String label = category.getLabel();
+//                    String tag = category.getTag();
+//
+//                    //company values
+//                    String display_name = company.getDisplay_name();
+//
+//                    //location values
+//                    ArrayList<String> area = location.getArea();
+//                    String location_display_name = location.getDisplay_name();
+//
+//                    content += "Date posted: " + created + "\n";
+//                    content += "Company Name: " + display_name + "\n";
+//                    content += "Job title: " + title + "\n";
+//                    content += "Job Label: " + label + "\n";
+//                    content += "Job Tag: " + tag + "\n";
+//                    content += "Job Id: " + id + "\n";
+//                    content += "Description: " + description + "\n";
+//                    content += "Is salary predicted: " + salary_is_predicted + "\n";
+//                    content += "Locations: \n";
+//                    for (String place : area)
+//                    {
+//                        content += "    " + place + "\n";
+//                    }
+//                    content += "Location Display Name: " + location_display_name + "\n";
+//                    content += "Latitude: " + latitude + "\n";
+//                    content += "Longitude: " + longitude + "\n";
+//                    content += "Redirect URL: " + redirect_url + "\n";
 //                    textViewResult.append(content);
+//                    content = "";
 //                }
 //
 //            }
 //
 //            @Override
-//            public void onFailure(Call<List<JobSearchResults>> call, Throwable t) {
+//            public void onFailure(Call<JobSearchResults> call, Throwable t) {
 //                textViewResult.setText("Message: " + t.getMessage());
 //            }
 //        });
 //    }
 
-    private void getJobSearchResult() {
+    private void getJobSearchResult(String s) {
 
-        Call<JobSearchResults> call = jsonPlaceHolderApi.getJobSearchResult();
+        Call<JobSearchResults> call = jsonPlaceHolderApi.getJobSearchResult(1, 10, s);
 
         call.enqueue(new Callback<JobSearchResults>() {
             @Override
@@ -103,7 +145,6 @@ public class LandingActivity extends AppCompatActivity {
                 String content = "";
 
                 content += "Count: " + String.valueOf(results.getCount()) + "\n";
-                content += "Mean: " + String.valueOf(results.getMean()) + "\n";
 
                 content += "Results: \n";
                 for (Results result : results.getResults())
@@ -114,16 +155,11 @@ public class LandingActivity extends AppCompatActivity {
                     Location location = result.getLocation();
                     String created = result.getCreated();
                     String description = result.getDescription();
-                    String id = result.getId();
-                    float latitude = result.getLatitude();
-                    float longitude = result.getLongitude();
                     String redirect_url = result.getRedirect_url();
-                    String salary_is_predicted = result.getSalary_is_predicted();
                     String title = result.getTitle();
 
                     //category values
                     String label = category.getLabel();
-                    String tag = category.getTag();
 
                     //company values
                     String display_name = company.getDisplay_name();
@@ -136,21 +172,16 @@ public class LandingActivity extends AppCompatActivity {
                     content += "Company Name: " + display_name + "\n";
                     content += "Job title: " + title + "\n";
                     content += "Job Label: " + label + "\n";
-                    content += "Job Tag: " + tag + "\n";
-                    content += "Job Id: " + id + "\n";
                     content += "Description: " + description + "\n";
-                    content += "Is salary predicted: " + salary_is_predicted + "\n";
                     content += "Locations: \n";
                     for (String place : area)
                     {
                         content += "    " + place + "\n";
                     }
                     content += "Location Display Name: " + location_display_name + "\n";
-                    content += "Latitude: " + latitude + "\n";
-                    content += "Longitude: " + longitude + "\n";
                     content += "Redirect URL: " + redirect_url + "\n";
+                    content += "\n";
                     textViewResult.append(content);
-                    content = "";
                 }
 
             }
@@ -161,6 +192,7 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
     }
+
 //        Call<List<String>> call = jsonPlaceHolderApi.getJobSearchResults();
 //
 //        call.enqueue(new Callback<List<String>>() {
@@ -188,4 +220,5 @@ public class LandingActivity extends AppCompatActivity {
 //            }
 //        });
     //  }
-    }
+
+}
