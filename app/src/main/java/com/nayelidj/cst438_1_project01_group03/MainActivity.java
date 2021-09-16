@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rotateAnimation();
 
-        mImageView=(ImageView)findViewById(R.id.jobHuntImageView);
+        mImageView = (ImageView)findViewById(R.id.jobHuntImageView);
+        rotateAnimation();
         mcreateAcctBtn = findViewById(R.id.createAcctbtn);
         mLoginBtn = findViewById(R.id.loginbtn);
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void rotateAnimation() {
-        rotateAnimation= AnimationUtils.loadAnimation(this, R.anim.rotate);
+        rotateAnimation= AnimationUtils.loadAnimation(MainActivity.this, R.anim.rotate);
         mImageView.startAnimation(rotateAnimation);
     }
 }
