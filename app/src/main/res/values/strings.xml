@@ -14,4 +14,6 @@
     <string name="logintextview" />
     <string name="TextViewTitle">Please Login</string>
     <string name="home">Home</string>
+    <string name="appTitle">Job Hunt</string>
+    <string name="register">Register</string>
 </resources>

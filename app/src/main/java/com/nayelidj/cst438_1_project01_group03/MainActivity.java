@@ -1,20 +1,27 @@
 package com.nayelidj.cst438_1_project01_group03;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button mcreateAcctBtn;
     private Button mLoginBtn;
+    Animation rotateAnimation;
+    ImageView mImageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        rotateAnimation();
 
+        mImageView=(ImageView)findViewById(R.id.jobHuntImageView);
         mcreateAcctBtn = findViewById(R.id.createAcctbtn);
         mLoginBtn = findViewById(R.id.loginbtn);
 
@@ -33,5 +40,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void rotateAnimation() {
+        rotateAnimation= AnimationUtils.loadAnimation(this, R.anim.rotate);
+        mImageView.startAnimation(rotateAnimation);
     }
 }
