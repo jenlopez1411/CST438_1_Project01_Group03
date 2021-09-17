@@ -18,12 +18,12 @@ public class CreateAccount extends AppCompatActivity {
     private Button mButton;
     private String mUsername;
     private String mPassword;
-    private CreateAcctDao mCreateDao;
+    private UserDao mCreateDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createaccount);
-
+        getDatabase();
         mUsernameField = findViewById(R.id.usernameEditText);
         mPasswordField = findViewById(R.id.passwordEditText);
         mButton = findViewById(R.id.submitBtn);
@@ -38,7 +38,7 @@ public class CreateAccount extends AppCompatActivity {
                 }else{
                     if(checkValidUsername()){
                         if(checkValidPassword()){
-                            CreateAcct acct = new CreateAcct(mUsername, mPassword);
+                            User acct = new User(mUsername, mPassword);
                             mCreateDao.insert(acct);
                             Toast.makeText(getApplicationContext(), "Account Created Successfully!", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(CreateAccount.this, LogIn.class);
@@ -57,8 +57,8 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     private boolean checkUserInDB(){
-        List<CreateAcct> acct = mCreateDao.getAllUsers();
-        for(CreateAcct acc: acct){
+        List<User> acct = mCreateDao.getAllUsers();
+        for(User acc: acct){
             if(mUsername.trim().equals(acc.getUserName().trim())){
                 return true;
             }
@@ -80,9 +80,9 @@ public class CreateAccount extends AppCompatActivity {
         return false;
     }
     public void getDatabase(){
-        mCreateDao = Room.databaseBuilder(this, CreateAcctDatabase.class, CreateAcctDatabase.DB_NAME)
+        mCreateDao = Room.databaseBuilder(this, UserDatabase.class, UserDatabase.DB_NAME)
                 .allowMainThreadQueries()
                 .build()
-                .getCreateAcctDao();
+                .getUserDao();
     }
 }
