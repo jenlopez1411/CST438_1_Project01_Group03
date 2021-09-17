@@ -4,35 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#935252"
+    android:soundEffectsEnabled="true"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/menuTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome1"
+        android:fontFamily="serif"
+        android:text="@string/appTitle"
         android:textAlignment="center"
+        android:textAllCaps="true"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075" />
+        app:layout_constraintVertical_bias="0.081" />
 
     <Button
         android:id="@+id/createAcctbtn"
         android:layout_width="188dp"
         android:layout_height="90dp"
-        android:background="#00BCD4"
-        android:text="@string/create"
-        android:textSize="20sp"
+        android:background="#532F2F"
+        android:fontFamily="serif"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textColor="#ECECEC"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.564" />
 
     <Button
         android:id="@+id/searchPagebtn"
@@ -45,16 +54,32 @@
         app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:id="@+id/loginbtn"
-        android:layout_width="180dp"
-        android:layout_height="84dp"
-        android:background="#00BCD4"
+        android:layout_width="190dp"
+        android:layout_height="91dp"
+        android:background="#532F2F"
+        android:fontFamily="serif"
         android:text="@string/login"
+        android:textAlignment="center"
+        android:textColor="#F6F6F6"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createAcctbtn"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.165" />
+
+    <ImageView
+        android:id="@+id/jobHuntImageView"
+        android:layout_width="146dp"
+        android:layout_height="154dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.272"
+        app:srcCompat="@drawable/jobjuntlogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

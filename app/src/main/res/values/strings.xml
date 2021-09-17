@@ -10,4 +10,12 @@
     <string name="empty" />
     <string name="password">Password</string>
     <string name="submit">Submit</string>
+    <string name="login2">LogIn</string>
+    <string name="logintextview" />
+    <string name="TextViewTitle">Please Login</string>
+    <string name="home">Home</string>
+    <string name="appTitle">Job Hunt</string>
+    <string name="register">Register</string>
+    <string name="loginText">Log In to Your Account</string>
+    <string name="createAccount">Create Account</string>
 </resources>
