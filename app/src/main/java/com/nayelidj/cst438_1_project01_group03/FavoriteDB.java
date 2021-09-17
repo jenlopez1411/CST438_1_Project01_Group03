@@ -1,3 +1,4 @@
+
 package com.nayelidj.cst438_1_project01_group03;
 
 import android.content.Context;
@@ -29,6 +30,8 @@ public abstract class FavoriteDB extends RoomDatabase {
                     //favorite added
                 }
             });
+            //add value
+            //to test
         }
     }
 }

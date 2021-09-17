@@ -188,6 +188,10 @@ public class SearchPage extends AppCompatActivity {
         String url = split[10] + split[11];
         url = url.split("\n")[0].trim();
 
+        // public Favorite(String companyName, String jobName, String jobLabel, int jobId, String description, String redirectUrl, Boolean favStat ){
+
+//        Favorite f = new Favorite(companyName, jobTitle, jobLabel, datePosted, country, state, county, city, description, url, true);
+
     }
 
 
