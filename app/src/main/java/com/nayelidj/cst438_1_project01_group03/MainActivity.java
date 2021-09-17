@@ -49,8 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void rotateAnimation() {
-        rotateAnimation= AnimationUtils.loadAnimation(MainActivity.this, R.anim.rotate);
+        rotateAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.rotate);
         mImageView.startAnimation(rotateAnimation);
+    }
 
     public void goToSearchPage() {
         Intent intent = new Intent(this, SearchPage.class);
