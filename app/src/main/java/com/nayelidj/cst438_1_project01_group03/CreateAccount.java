@@ -23,7 +23,7 @@ public class CreateAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createaccount);
-
+        getDatabase();
         mUsernameField = findViewById(R.id.usernameEditText);
         mPasswordField = findViewById(R.id.passwordEditText);
         mButton = findViewById(R.id.submitBtn);
