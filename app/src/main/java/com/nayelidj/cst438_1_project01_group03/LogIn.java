@@ -29,6 +29,7 @@ public class LogIn extends AppCompatActivity {
         mPasswordField = findViewById(R.id.enterPasswordEditText);
         mbtn = findViewById(R.id.loginButton);
         mHomeBtn = findViewById(R.id.HomeBtn);
+
         mbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
