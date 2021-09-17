@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private Button button;
     private Button mcreateAcctBtn;
     private Button mLoginBtn;
     Animation rotateAnimation;
@@ -19,31 +20,51 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        button = (Button) findViewById(R.id.searchPagebtn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToSearchPage();
+            }
+        });
 
         mImageView = (ImageView)findViewById(R.id.jobHuntImageView);
         rotateAnimation();
         mcreateAcctBtn = findViewById(R.id.createAcctbtn);
-        mLoginBtn = findViewById(R.id.loginbtn);
-
         mcreateAcctBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CreateAccount.class);
-                startActivity(intent);
+                goToCreateAccount();
             }
         });
 
+        mLoginBtn = findViewById(R.id.loginbtn);
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LogIn.class);
-                startActivity(intent);
+                goToLoginPage();
             }
         });
     }
 
+
     private void rotateAnimation() {
         rotateAnimation= AnimationUtils.loadAnimation(MainActivity.this, R.anim.rotate);
         mImageView.startAnimation(rotateAnimation);
+
+    public void goToSearchPage() {
+        Intent intent = new Intent(this, SearchPage.class);
+        startActivity(intent);
+    }
+
+    public void goToCreateAccount() {
+        Intent intent = new Intent(MainActivity.this, CreateAccount.class);
+        startActivity(intent);
+    }
+
+    public void goToLoginPage() {
+        Intent intent = new Intent(MainActivity.this, LogIn.class);
+        startActivity(intent);
+
     }
 }
