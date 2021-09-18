@@ -19,20 +19,31 @@ public class CreateAccount extends AppCompatActivity {
     private String mUsername;
     private String mPassword;
     private UserDao mCreateDao;
+    private Button mHomeBtn;
+//    HomeButton
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createaccount);
         getDatabase();
-        mUsernameField = findViewById(R.id.usernameEditText);
-        mPasswordField = findViewById(R.id.passwordEditText);
         mButton = findViewById(R.id.submitBtn);
-        mUsername = mUsernameField.getText().toString();
-        mPassword = mPasswordField.getText().toString();
+        mHomeBtn = findViewById(R.id.HomeButton);
+
+        mHomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CreateAccount.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mUsernameField = findViewById(R.id.usernameEditText);
+                mPasswordField = findViewById(R.id.passwordEditText);
+                mUsername = mUsernameField.getText().toString();
+                mPassword = mPasswordField.getText().toString();
                 if(checkUserInDB()){
                     Toast.makeText(getApplicationContext(), "Already " + mUsername + " exists", Toast.LENGTH_LONG).show();
                 }else{
@@ -56,6 +67,7 @@ public class CreateAccount extends AppCompatActivity {
 
     }
 
+
     private boolean checkUserInDB(){
         List<User> acct = mCreateDao.getAllUsers();
         for(User acc: acct){
@@ -67,14 +79,14 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     private boolean checkValidUsername(){
-        if(mUsername.trim().length() >= 4 && mUsername.matches("(?=.*[a-zA-Z])(?=.*[a-zA-Z])(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$")){
+        if(mUsername.trim().length() >= 4){
             return true;
         }
         return false;
     }
 
     private boolean checkValidPassword(){
-        if(mPassword.trim().length() >= 4 && mPassword.matches("(?=.*[a-zA-Z])(?=.*[a-zA-Z])(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$")){
+        if(mPassword.trim().length() >= 4){
             return true;
         }
         return false;

@@ -57,23 +57,7 @@ public class Favorite {
         this.favStat = favStat;
     }
 
-    @Override
-    public String toString() {
-        return "Favorite{" +
-                "favoriteId=" + favoriteId +
-                ", companyName='" + companyName + '\'' +
-                ", jobName='" + jobName + '\'' +
-                ", jobLabel='" + jobLabel + '\'' +
-                ", datePosted='" + datePosted + '\'' +
-                ", country='" + country + '\'' +
-                ", state='" + state + '\'' +
-                ", county='" + county + '\'' +
-                ", city='" + city + '\'' +
-                ", description='" + description + '\'' +
-                ", redirectUrl='" + redirectUrl + '\'' +
-                ", favStat=" + favStat +
-                '}';
-    }
+
 
     public int getFavoriteId() {
         return favoriteId;
@@ -169,5 +153,21 @@ public class Favorite {
 
     public void setFavStat(Boolean favStat) {
         this.favStat = favStat;
+    }
+
+    @Override
+    public String toString() {
+        return
+                favoriteId + ". " +
+                "Company Name: " + companyName  + ", \n" +
+                "Job Name: " + jobName + ", \n"+
+                        "Job Label: " + jobLabel + ", \n" +
+                        "Date Posted: " + datePosted + ", \n" +
+                        "Country: " + country + ", \n" +
+                        "State: " + state + ", \n" +
+                        "County: " + county + ", \n" +
+                        "City: " + city + ", \n" +
+                        "Description: " + description + ", \n"+
+                        "Url: " + redirectUrl;
     }
 }

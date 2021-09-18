@@ -24,13 +24,17 @@ public class FavPageDisplay extends AppCompatActivity {
         favoriteList = fdb.FavD().getAllFavorite();
         favListView = findViewById(R.id.list_favorites);
 
-        updateFav();
-    }
+        updateUI();
 
-    public void updateFav(){
+    }
+    private void updateUI() {
         favoriteList = fdb.FavD().getAllFavorite();
-
-        FavoriteAdapter.addAll(favoriteList);
-        FavoriteAdapter.notifyDataSetChanged();
-    }
+        if (FavoriteAdapter == null) {
+            FavoriteAdapter = new ArrayAdapter<>(this, R.layout.activity_favorites, R.id.favoritesPageNew, favoriteList);
+            favListView.setAdapter(FavoriteAdapter);
+        } else {
+            FavoriteAdapter.clear();
+            FavoriteAdapter.addAll(favoriteList);
+            FavoriteAdapter.notifyDataSetChanged();
+        } }
 }
