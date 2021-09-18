@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
-
+//this is a comment
 public class FavPageDisplay extends AppCompatActivity {
     private FavoriteDB fdb;
     public List<Favorite> favoriteList;
