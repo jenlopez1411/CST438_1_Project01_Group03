@@ -1,6 +1,7 @@
 package com.nayelidj.cst438_1_project01_group03;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,9 +27,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SearchPage extends AppCompatActivity {
+    private FavoriteDB fdb;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
 
     private Button searchButton;
+    private Button favPageBtn;
 
     private TextView textViewResult;
 
@@ -36,6 +39,15 @@ public class SearchPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
+
+        fdb = FavoriteDB.getInstance(this);
+        fdb.seed();
+
+    }
+
+    public void favoritePage(View view){
+        Intent i = new Intent(this, FavPageDisplay.class);
+        startActivity(i);
     }
     public void searchB(View view){
         Context context = getApplicationContext();
@@ -188,6 +200,10 @@ public class SearchPage extends AppCompatActivity {
         String url = split[10] + split[11];
         url = url.split("\n")[0].trim();
 
+        // public Favorite(String companyName, String jobName, String jobLabel, int jobId, String description, String redirectUrl, Boolean favStat ){
+
+        Favorite f = new Favorite(companyName, jobTitle, jobLabel, datePosted, country, state, county, city, description, url, true);
+        fdb.FavD().addFavorite(f);
     }
 
 

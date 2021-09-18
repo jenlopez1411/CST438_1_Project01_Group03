@@ -36,7 +36,7 @@ public class LogIn extends AppCompatActivity {
                 username = mUsernameField.getText().toString();
                 password = mPasswordField.getText().toString();
                 if(checkInDB()){
-                    Intent intent = new Intent(LogIn.this, MainActivity.class);
+                    Intent intent = new Intent(LogIn.this, SearchPage.class);
                     Toast.makeText(getApplicationContext(), "Passed login", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                 }else{

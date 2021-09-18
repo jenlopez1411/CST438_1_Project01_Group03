@@ -20,4 +20,3 @@ public interface FavoriteDao {
     @Query("SELECT * FROM Favorite where favoriteId=:favoriteId")
     List<Favorite> getFavorite(String favoriteId);
 }
-
